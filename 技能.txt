@@ -1,0 +1,311 @@
+技能{
+
+"ability_base"	//技能名
+	"DOTA_Tooltip_ability_【技能名】"
+
+{
+	// General
+	"ID"
+		技能ID
+	"AbilityType"
+		技能类型{
+		DOTA_ABILITY_TYPE_BASIC			基本技能
+		DOTA_ABILITY_TYPE_ULTIMATE		大招
+		DOTA_ABILITY_TYPE_ATTRIBUTES	天赋树
+		}
+	"AbilityBehavior"
+		技能行为{
+			"DOTA_ToolTip_Ability"	"技能："
+		DOTA_ABILITY_BEHAVIOR_HIDDEN               = 1 << 0, //这个技能是单位所拥有的技能，但是不会在HUD上显示。
+		DOTA_ABILITY_BEHAVIOR_PASSIVE              = 1 << 1, //这个技能是一个被动技能，不能被使用，但是会在HUD上显示。
+			"DOTA_ToolTip_Ability_Passive"	"被动"
+		DOTA_ABILITY_BEHAVIOR_NO_TARGET            = 1 << 2, //不需要指定目标就能释放的技能，当按下技能按钮的时候，这个技能就会被释放。
+			"DOTA_ToolTip_Ability_NoTarget"	"无目标"
+		DOTA_ABILITY_BEHAVIOR_UNIT_TARGET          = 1 << 3, //技能需要指定一个目标来释放。
+			"DOTA_ToolTip_Ability_Target"	"单位目标"
+		DOTA_ABILITY_BEHAVIOR_POINT                = 1 << 4, //技能将会在鼠标指定的位置释放（如果鼠标指向了一个单位，会在单位所在的位置释放）。
+			"DOTA_ToolTip_Ability_Point"	"点目标"
+		DOTA_ABILITY_BEHAVIOR_AOE                  = 1 << 5, //这个技能将会显示技能释放的范围，有点像DOTA_ABILITY_BEHAVIOR_POINT类的技能，但是会显示一个范围。
+		DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE        = 1 << 6, //这个技能将能被释放，或者拥有对应的释放机制，但是不能被学习。（一般是用在类似炸弹人的引爆炸弹技能）。
+		DOTA_ABILITY_BEHAVIOR_CHANNELLED           = 1 << 7, //持续性施法技能，如果施法者移动或者被沉默，这个技能将会被中断。
+		DOTA_ABILITY_BEHAVIOR_ITEM                 = 1 << 8, //这个技能绑定了一个物品。
+		DOTA_ABILITY_BEHAVIOR_TOGGLE               = 1 << 9, //切换类技能。
+			"DOTA_ToolTip_Ability_Toggle"	"切换"
+		DOTA_ABILITY_BEHAVIOR_DIRECTIONAL          = 1 << 10, //这个技能是一个从英雄出发的方向性技能，比如米拉娜的月之神剑或者屠夫的肉钩。
+		DOTA_ABILITY_BEHAVIOR_IMMEDIATE            = 1 << 11, //这个技能将会被立即释放，不会进入操作序列。
+		DOTA_ABILITY_BEHAVIOR_AUTOCAST             = 1 << 12, //这个技能可以被自动释放。
+			"DOTA_ToolTip_Ability_AutoCast"	"自动施放"
+		DOTA_ABILITY_BEHAVIOR_NOASSIST             = 1 << 13, //这个技能将不会有辅助网格。
+		DOTA_ABILITY_BEHAVIOR_AURA                 = 1 << 14, //这个技能是一个光环技能，Not really used other than to tag the ability as such.
+			"DOTA_ToolTip_Ability_Aura"	"光环"
+		DOTA_ABILITY_BEHAVIOR_ATTACK               = 1 << 15, //这个技能是一个法球技能，不能对魔法免疫目标生效，
+		DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT = 1 << 16, //这个技能在释放完成之后不会继续之前的移动操作，只能和无目标或者立即释放类技能配合使用。
+		DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES        = 1 << 17, //这个技能在单位被定身的时候无法使用。
+		DOTA_ABILITY_BEHAVIOR_UNRESTRICTED         = 1 << 18, //这个技能在释放指令被限制的时候也能被使用。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE  = 1 << 19, //这个技能在被眩晕，施法和被强制攻击的时候也能使用，只能和自动释放类DOTA_ABILITY_BEHAVIOR_AUTOCAST配合使用。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL       = 1 << 20, //这个技能即使施法被中断也能继续释放。
+		DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT = 1 << 21, //Doesn't cause certain modifiers to end, 目前未知，只在信使的速度爆发有见到。
+		DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET    = 1 << 22, //这个技能在指定敌人释放的时候将不会惊醒他们。
+		DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK   = 1 << 23, //这个技能在释放完成之后，将不会恢复对之前目标的自动攻击，只能配合无目标，非立即释放类和指定单位目标类技能使用。
+		DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN   = 1 << 24, //这个技能在被偷取之后，依然使用之前的施法前摇。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING     = 1 << 25, //这个技能将会无视施法后摇。
+		DOTA_ABILITY_BEHAVIOR_RUNE_TARGET          = 1 << 26, //这个技能能以神符为目标。
+		}
+	"AbilityUnitTargetTeam"	
+		目标阵营{
+		DOTA_UNIT_TARGET_TEAM_BOTH		双方队伍
+		DOTA_UNIT_TARGET_TEAM_CUSTOM	普通队伍
+		DOTA_UNIT_TARGET_TEAM_ENEMY		敌方队伍
+		DOTA_UNIT_TARGET_TEAM_FRIENDLY	友方队伍
+		DOTA_UNIT_TARGET_TEAM_NONE		无
+		}
+	"AbilityUnitTargetType"
+		目标类型{
+		DOTA_UNIT_TARGET_ALL		所有
+		DOTA_UNIT_TARGET_BASIC		基本
+		DOTA_UNIT_TARGET_BUILDING	建筑
+		DOTA_UNIT_TARGET_COURIER	信使
+		DOTA_UNIT_TARGET_CREEP		野怪
+		DOTA_UNIT_TARGET_CUSTOM		普通
+		DOTA_UNIT_TARGET_HERO		英雄
+		DOTA_UNIT_TARGET_MECHANICAL	机械
+		DOTA_UNIT_TARGET_NONE		无
+		DOTA_UNIT_TARGET_OTHER		其他
+		DOTA_UNIT_TARGET_TREE		树木 
+		}
+		目标字符串{
+		"DOTA_ToolTip_Targeting"	"影响："
+		"DOTA_ToolTip_Targeting_Enemy"	"敌方"
+		"DOTA_ToolTip_Targeting_EnemyHero"	"敌方英雄"
+		"DOTA_ToolTip_Targeting_Self"	"自身"
+		"DOTA_ToolTip_Targeting_Allies"	"友方"
+		"DOTA_ToolTip_Targeting_Trees"	"树"
+		"DOTA_ToolTip_Targeting_EnemyCreeps"				"敌方普通单位"
+		"DOTA_ToolTip_Targeting_EnemyUnits"					"敌方单位"
+		"DOTA_ToolTip_Targeting_EnemyHeroesAndBuildings"	"敌方英雄和建筑"
+		"DOTA_ToolTip_Targeting_EnemyUnitsAndBuildings"		"敌方单位和建筑"
+		"DOTA_ToolTip_Targeting_AlliedCreeps"				"友方普通单位"
+		"DOTA_ToolTip_Targeting_AlliedUnits"				"友方单位"
+		"DOTA_ToolTip_Targeting_AlliedHeroesAndBuildings"	"友方英雄和建筑"
+		"DOTA_ToolTip_Targeting_AlliedUnitsAndBuildings"	"友方单位和建筑"
+		}
+	"AbilityUnitTargetFlags"
+		目标状态{
+		DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP		检测玩家"禁用帮助"选项
+		DOTA_UNIT_TARGET_FLAG_DEAD						已死亡
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE				*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_INVULNERABLE				无敌
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES		魔法免疫的敌人
+		DOTA_UNIT_TARGET_FLAG_MANA_ONLY					*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_MELEE_ONLY				*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS					不是隐形的
+		DOTA_UNIT_TARGET_FLAG_NONE						无
+		DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS				不是远古
+		DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE			不是攻击免疫
+		DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO			不是野怪
+		DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED				不可控制的
+		DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS				不是幻象
+		DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES	不是魔法免疫的盟友
+		DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED			非被催眠的
+		DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED				非召唤的
+		DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD				被放逐出世界的
+		DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED			玩家控制的
+		DOTA_UNIT_TARGET_FLAG_RANGED_ONLY				范围唯一的
+		}
+	"AbilityUnitDamageType"
+		伤害类型{
+			"DOTA_ToolTip_Damage"	"伤害类型："
+		DAMAGE_TYPE_MAGICAL		魔法伤害
+			"DOTA_ToolTip_Damage_Magical"	"魔法"
+		DAMAGE_TYPE_PHYSICAL	物理伤害
+			"DOTA_ToolTip_Damage_Physical"	"<font color=\"#71a9ea\">物理</font>"
+		DAMAGE_TYPE_PURE		纯粹伤害
+			"DOTA_ToolTip_Damage_Pure"	"<font color=\"#d61107\">纯粹</font>"
+		DAMAGE_TYPE_HP_REMOVAL 	【未使用】
+		DAMAGE_TYPE_COMPOSITE	【未使用】混合伤害
+			"DOTA_ToolTip_Damage_Composite"	"混合"
+		}
+	"SpellImmunityType"
+		是否无视技能免疫{
+			"DOTA_ToolTip_PiercesSpellImmunity"	"无视技能免疫："
+		SPELL_IMMUNITY_ENEMIES_NO	不无视魔免
+			"DOTA_ToolTip_PiercesSpellImmunity_No"	"否"
+		SPELL_IMMUNITY_ENEMIES_YES	无视魔免
+			"DOTA_ToolTip_PiercesSpellImmunity_Yes"	"<font color=\"#70EA72\">是</font>"
+		}
+	"SpellDispellableType"
+		能否驱散{
+			"DOTA_ToolTip_Dispellable"	"能否驱散："
+		SPELL_DISPELLABLE_NO			不可驱散
+			"DOTA_ToolTip_Dispellable_No"	"<font color=\"#cc0000\">无法驱散</font>"
+		SPELL_DISPELLABLE_YES			可以驱散
+			"DOTA_ToolTip_Dispellable_Yes_Soft"	"是"
+		SPELL_DISPELLABLE_YES_STRONG	仅强驱散
+			"DOTA_ToolTip_Dispellable_Yes_Strong"	"<font color=\"#cc0000\">仅强驱散</font>"
+		}
+	"HasScepterUpgrade"		=1
+		能用神杖升级
+	"FightRecapLevel"		={0,1,2}
+		战斗回放中的显示优先级
+	"OnCastbar"				={0,1}
+		在施法条显示？影魔的两个被动是0
+	"OnLearnbar"			={0,1}
+		不明？影魔的23影压是0
+
+	// Casting
+	"AbilityCastRange"				施法距离
+	"AbilityCastRangeBuffer"		缓冲距离（目标的距离大于施法距离+逃离距离即取消技能）
+	"AbilityCastPoint"				施法前摇
+	
+	// Time
+	"AbilityChannelTime"			持续时间
+	"AbilityCooldown"				冷却时间
+	"AbilityDuration"				持续时间（不显示时间条）
+	"AbilitySharedCooldown"			共享冷却？Beast Teleport独有值teleport
+	
+	// Damage
+	"AbilityDamage"					技能伤害
+	
+	// Cost
+	"AbilityManaCost"				MP消耗
+	
+	// Stats
+	"AbilityModifierSupportValue"	=0.0~1.0	【不明】
+	"AbilityModifierSupportBonus"	=Integer	【不明】
+	
+}
+}
+
+
+物品{
+	// General
+	"ID"
+	"AbilityBehavior"
+		技能行为{
+			"DOTA_ToolTip_Ability"	"技能："
+		DOTA_ABILITY_BEHAVIOR_HIDDEN               = 1 << 0, //这个技能是单位所拥有的技能，但是不会在HUD上显示。
+		DOTA_ABILITY_BEHAVIOR_PASSIVE              = 1 << 1, //这个技能是一个被动技能，不能被使用，但是会在HUD上显示。
+			"DOTA_ToolTip_Ability_Passive"	"被动"
+		DOTA_ABILITY_BEHAVIOR_NO_TARGET            = 1 << 2, //不需要指定目标就能释放的技能，当按下技能按钮的时候，这个技能就会被释放。
+			"DOTA_ToolTip_Ability_NoTarget"	"无目标"
+		DOTA_ABILITY_BEHAVIOR_UNIT_TARGET          = 1 << 3, //技能需要指定一个目标来释放。
+			"DOTA_ToolTip_Ability_Target"	"单位目标"
+		DOTA_ABILITY_BEHAVIOR_POINT                = 1 << 4, //技能将会在鼠标指定的位置释放（如果鼠标指向了一个单位，会在单位所在的位置释放）。
+			"DOTA_ToolTip_Ability_Point"	"点目标"
+		DOTA_ABILITY_BEHAVIOR_AOE                  = 1 << 5, //这个技能将会显示技能释放的范围，有点像DOTA_ABILITY_BEHAVIOR_POINT类的技能，但是会显示一个范围。
+		DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE        = 1 << 6, //这个技能将能被释放，或者拥有对应的释放机制，但是不能被学习。（一般是用在类似炸弹人的引爆炸弹技能）。
+		DOTA_ABILITY_BEHAVIOR_CHANNELLED           = 1 << 7, //持续性施法技能，如果施法者移动或者被沉默，这个技能将会被中断。
+		DOTA_ABILITY_BEHAVIOR_ITEM                 = 1 << 8, //这个技能绑定了一个物品。
+		DOTA_ABILITY_BEHAVIOR_TOGGLE               = 1 << 9, //切换类技能。
+			"DOTA_ToolTip_Ability_Toggle"	"切换"
+		DOTA_ABILITY_BEHAVIOR_DIRECTIONAL          = 1 << 10, //这个技能是一个从英雄出发的方向性技能，比如米拉娜的月之神剑或者屠夫的肉钩。
+		DOTA_ABILITY_BEHAVIOR_IMMEDIATE            = 1 << 11, //这个技能将会被立即释放，不会进入操作序列。
+		DOTA_ABILITY_BEHAVIOR_AUTOCAST             = 1 << 12, //这个技能可以被自动释放。
+			"DOTA_ToolTip_Ability_AutoCast"	"自动施放"
+		DOTA_ABILITY_BEHAVIOR_NOASSIST             = 1 << 13, //这个技能将不会有辅助网格。
+		DOTA_ABILITY_BEHAVIOR_AURA                 = 1 << 14, //这个技能是一个光环技能，Not really used other than to tag the ability as such.
+			"DOTA_ToolTip_Ability_Aura"	"光环"
+		DOTA_ABILITY_BEHAVIOR_ATTACK               = 1 << 15, //这个技能是一个法球技能，不能对魔法免疫目标生效，
+		DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT = 1 << 16, //这个技能在释放完成之后不会继续之前的移动操作，只能和无目标或者立即释放类技能配合使用。
+		DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES        = 1 << 17, //这个技能在单位被定身的时候无法使用。
+		DOTA_ABILITY_BEHAVIOR_UNRESTRICTED         = 1 << 18, //这个技能在释放指令被限制的时候也能被使用。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE  = 1 << 19, //这个技能在被眩晕，施法和被强制攻击的时候也能使用，只能和自动释放类DOTA_ABILITY_BEHAVIOR_AUTOCAST配合使用。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL       = 1 << 20, //这个技能即使施法被中断也能继续释放。
+		DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT = 1 << 21, //Doesn't cause certain modifiers to end, 目前未知，只在信使的速度爆发有见到。
+		DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET    = 1 << 22, //这个技能在指定敌人释放的时候将不会惊醒他们。
+		DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK   = 1 << 23, //这个技能在释放完成之后，将不会恢复对之前目标的自动攻击，只能配合无目标，非立即释放类和指定单位目标类技能使用。
+		DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN   = 1 << 24, //这个技能在被偷取之后，依然使用之前的施法前摇。
+		DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING     = 1 << 25, //这个技能将会无视施法后摇。
+		DOTA_ABILITY_BEHAVIOR_RUNE_TARGET          = 1 << 26, //这个技能能以神符为目标。
+		}
+	"AbilityUnitTargetTeam"	
+		目标阵营{
+		DOTA_UNIT_TARGET_TEAM_BOTH		双方队伍
+		DOTA_UNIT_TARGET_TEAM_CUSTOM	普通队伍
+		DOTA_UNIT_TARGET_TEAM_ENEMY		敌方队伍
+		DOTA_UNIT_TARGET_TEAM_FRIENDLY	友方队伍
+		DOTA_UNIT_TARGET_TEAM_NONE		无
+		}
+	"AbilityUnitTargetType"
+		目标类型{
+		DOTA_UNIT_TARGET_ALL		所有
+		DOTA_UNIT_TARGET_BASIC		基本
+		DOTA_UNIT_TARGET_BUILDING	建筑
+		DOTA_UNIT_TARGET_COURIER	信使
+		DOTA_UNIT_TARGET_CREEP		野怪
+		DOTA_UNIT_TARGET_CUSTOM		普通
+		DOTA_UNIT_TARGET_HERO		英雄
+		DOTA_UNIT_TARGET_MECHANICAL	机械
+		DOTA_UNIT_TARGET_NONE		无
+		DOTA_UNIT_TARGET_OTHER		其他
+		DOTA_UNIT_TARGET_TREE		树木 
+		}
+		目标字符串{
+		"DOTA_ToolTip_Targeting"	"影响："
+		"DOTA_ToolTip_Targeting_Enemy"	"敌方"
+		"DOTA_ToolTip_Targeting_EnemyHero"	"敌方英雄"
+		"DOTA_ToolTip_Targeting_Self"	"自身"
+		"DOTA_ToolTip_Targeting_Allies"	"友方"
+		"DOTA_ToolTip_Targeting_Trees"	"树"
+		"DOTA_ToolTip_Targeting_EnemyCreeps"				"敌方普通单位"
+		"DOTA_ToolTip_Targeting_EnemyUnits"					"敌方单位"
+		"DOTA_ToolTip_Targeting_EnemyHeroesAndBuildings"	"敌方英雄和建筑"
+		"DOTA_ToolTip_Targeting_EnemyUnitsAndBuildings"		"敌方单位和建筑"
+		"DOTA_ToolTip_Targeting_AlliedCreeps"				"友方普通单位"
+		"DOTA_ToolTip_Targeting_AlliedUnits"				"友方单位"
+		"DOTA_ToolTip_Targeting_AlliedHeroesAndBuildings"	"友方英雄和建筑"
+		"DOTA_ToolTip_Targeting_AlliedUnitsAndBuildings"	"友方单位和建筑"
+		}
+	"AbilityUnitTargetFlags"
+		目标状态{
+		DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP		检测玩家"禁用帮助"选项
+		DOTA_UNIT_TARGET_FLAG_DEAD						已死亡
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE				*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_INVULNERABLE				无敌
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES		魔法免疫的敌人
+		DOTA_UNIT_TARGET_FLAG_MANA_ONLY					*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_MELEE_ONLY				*暂无说明*
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS					不是隐形的
+		DOTA_UNIT_TARGET_FLAG_NONE						无
+		DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS				不是远古
+		DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE			不是攻击免疫
+		DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO			不是野怪
+		DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED				不可控制的
+		DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS				不是幻象
+		DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES	不是魔法免疫的盟友
+		DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED			非被催眠的
+		DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED				非召唤的
+		DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD				被放逐出世界的
+		DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED			玩家控制的
+		DOTA_UNIT_TARGET_FLAG_RANGED_ONLY				范围唯一的
+		}
+	// Item Info
+	"ItemCost"						价格
+	"ItemShopTags"					商店标签,"DOTA_SHOP_TAG_{}"
+	"ItemQuality"					稀有度
+	"ItemAliases"					物品别名
+	//"ItemShareability"				物品共享，在note中体现
+	//"ItemStackable"					可充能
+	//"ItemPermanent"					永久性（充能0不消失）
+	"ItemPurchasable"				能否出售，默认1可以出售
+	"ItemDisassembleRule"			能否分解"DOTA_ITEM_DISASSEMBLE_NEVER"=0，"DOTA_ITEM_DISASSEMBLE_ALWAYS"=1
+	//"ItemInitialCharges"			初始充能值
+	//"ItemDisplayCharges"			显示充能值？
+	"ItemStockMax"					最多储备
+	"ItemStockInitial"				初始储备
+	"ItemStockTime"					储备时间
+	"ItemInitialStockTime"			初始储备时间
+	"ItemDeclarations"				不明"ItemDeclarations" "DECLARE_PURCHASES_TO_TEAMMATES""DECLARE_PURCHASES_IN_SPEECH""DECLARE_PURCHASES_TO_SPECTATORS"
+	"ItemSupport"					是否为辅助物品
+	"IsTempestDoubleClonable"		不明
+
+	// Stats
+	"AbilityCastRange"				施法距离
+	"AbilityCastPoint"				施法前摇，全部为0
+	"AbilityCooldown"				冷却时间
+	"AbilitySharedCooldown"			共享冷却，在note中体现
+	"AbilityChannelTime"			持续时间
+	//"MaxUpgradeLevel"				最高等级
+	"ItemBaseLevel"				当前等级
+
+}

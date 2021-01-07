@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{711C78BB-99E4-4122-A443-49C14EBD8B19}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Ouroboros_Dota_Data.My.MyApplication</StartupObject>
+    <RootNamespace>Ouroboros_Dota_Data</RootNamespace>
+    <AssemblyName>Ouroboros_Dota_Data</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Ouroboros_Dota_Data.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Ouroboros_Dota_Data.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>Off</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>Off</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>Ouroboros_Dota_Data.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>Ouroboros_Dota_Data.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>.\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="ValveKeyValue">
+      <HintPath>.\ValveKeyValue.dll</HintPath>
+    </Reference>
+    <Reference Include="ValvePak">
+      <HintPath>.\ValvePak.dll</HintPath>
+    </Reference>
+    <Reference Include="ValveResourceFormat">
+      <HintPath>.\ValveResourceFormat.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArtifactCard.Designer.vb">
+      <DependentUpon>ArtifactCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ArtifactCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataTab.Designer.vb">
+      <DependentUpon>DataTab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataTab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeroGame.Designer.vb">
+      <DependentUpon>HeroGame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HeroGame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeroQuiz.Designer.vb">
+      <DependentUpon>HeroQuiz.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HeroQuiz.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvokerTrainer.Designer.vb">
+      <DependentUpon>InvokerTrainer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InvokerTrainer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemIfm.Designer.vb">
+      <DependentUpon>ItemIfm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ItemIfm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemQuiz.Designer.vb">
+      <DependentUpon>ItemQuiz.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ItemQuiz.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp.Designer.vb">
+      <DependentUpon>StartUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitIfm.Designer.vb">
+      <DependentUpon>UnitIfm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UnitIfm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Upd.Designer.vb">
+      <DependentUpon>Upd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Upd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeroIfm.Designer.vb">
+      <DependentUpon>HeroIfm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HeroIfm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeroSel.Designer.vb">
+      <DependentUpon>HeroSel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HeroSel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdl.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ArtifactCard.resx">
+      <DependentUpon>ArtifactCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataTab.resx">
+      <DependentUpon>DataTab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeroGame.resx">
+      <DependentUpon>HeroGame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeroQuiz.resx">
+      <DependentUpon>HeroQuiz.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvokerTrainer.resx">
+      <DependentUpon>InvokerTrainer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemIfm.resx">
+      <DependentUpon>ItemIfm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemQuiz.resx">
+      <DependentUpon>ItemQuiz.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartUp.resx">
+      <DependentUpon>StartUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitIfm.resx">
+      <DependentUpon>UnitIfm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Upd.resx">
+      <DependentUpon>Upd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeroIfm.resx">
+      <DependentUpon>HeroIfm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeroSel.resx">
+      <DependentUpon>HeroSel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\Dota2Data.ddb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="Readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\empty_skill.png" />
+    <Content Include="Resources\icon_agi.png" />
+    <Content Include="Resources\icon_agi_p.png" />
+    <Content Include="Resources\icon_amr_tmp.png" />
+    <Content Include="Resources\icon_atk.png" />
+    <Content Include="Resources\icon_cd.png" />
+    <Content Include="Resources\icon_def.png" />
+    <Content Include="Resources\icon_gold.png" />
+    <Content Include="Resources\icon_int.png" />
+    <Content Include="Resources\icon_int_p.png" />
+    <Content Include="Resources\icon_mana.png" />
+    <Content Include="Resources\icon_mov.png" />
+    <Content Include="Resources\icon_str.png" />
+    <Content Include="Resources\icon_str_p.png" />
+    <Content Include="Resources\img_F.png" />
+    <Content Include="Resources\img_recipe.png" />
+    <Content Include="Resources\img_T.png" />
+    <Content Include="Resources\img_uk_h.png" />
+    <Content Include="Resources\img_uk_i.png" />
+    <Content Include="Resources\invoker\invoker_alacrity_png.png" />
+    <Content Include="Resources\invoker\invoker_attribute_bonus_png.png" />
+    <None Include="Resources\invoker\invoker_ball_background.png" />
+    <None Include="Resources\invoker\invoker_ball_shade.png" />
+    <Content Include="Resources\invoker\invoker_chaos_meteor_png.png" />
+    <Content Include="Resources\invoker\invoker_cold_snap_png.png" />
+    <Content Include="Resources\invoker\invoker_deafening_blast_png.png" />
+    <Content Include="Resources\invoker\invoker_emp_png.png" />
+    <Content Include="Resources\invoker\invoker_exort_png.png" />
+    <Content Include="Resources\invoker\invoker_forge_spirit_png.png" />
+    <Content Include="Resources\invoker\invoker_ghost_walk_png.png" />
+    <Content Include="Resources\invoker\invoker_ice_wall_png.png" />
+    <Content Include="Resources\invoker\invoker_invoke_png.png" />
+    <Content Include="Resources\invoker\invoker_quas_png.png" />
+    <Content Include="Resources\invoker\invoker_sun_strike_png.png" />
+    <Content Include="Resources\invoker\invoker_tornado_png.png" />
+    <Content Include="Resources\invoker\invoker_wex_png.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+[D:\game\Dota2\steamapps\common\dota 2 beta\game\dota\steam.inf]
+ClientVersion=2698
+ServerVersion=2698
+ProductName=dota2_workshop
+appID=570
+ServerAppID=373310
+CustomGameServerAppID=471280
+ToolsAppID=316570
+SourceRevision=4391426
+VersionDate=Mar 01 2018
+VersionTime=15:26:32
+=========================================================================
+[D:\game\Dota2\steamapps\common\dota 2 beta\game\dota\panorama\localization\patchnotes\patchnotes_schinese.txt]
+版本变动
+=================================================

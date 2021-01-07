@@ -1,0 +1,1 @@
+vpk x pak01 scripts\shops.txt
